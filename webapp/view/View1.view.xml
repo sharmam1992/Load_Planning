@@ -1,0 +1,48 @@
+<mvc:View controllerName="com.dpz.loadplanning.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="">
+        <content>
+            <Table id="idRouteTable"  items="{path:'oLocalModel>/',sorter:{path:'Route',descending:false}}" growing="true" noDataText="No data found. Try again.">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>routeDetails}" level="H2"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>dispatchOrder}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>routeName}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>routeCode}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="{i18n>door}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>truckSize}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" press="onPressRow" type="Navigation">
+                        <cells>
+                            <Input value="{oLocalModel>DispatchOrder}" liveChange="validateNumber" maxLength="2" change="onChange" placeholder="Enter Dispatch Order" width="50%"/>
+                            <Text text="{path:'oLocalModel>RouteDescription'}"/>
+                            <Text text="{oLocalModel>Route}" />
+                            <Input value="{oLocalModel>Door}" liveChange="validateNumber" maxLength="2" change="onChange" placeholder="Enter Door" width="50%"/>
+                            <ComboBox placeholder="Enter Truck" selectedKey="{oLocalModel>TruckSizeType}" change="onChange" width="50%" items="{path: 'oTruckModel>/',sorter: { path: 'TruckSizeType' }}">
+                                <core:Item key="{oTruckModel>TruckSizeType}" text="{oTruckModel>TruckDescription}" />
+                            </ComboBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

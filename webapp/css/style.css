@@ -1,0 +1,22 @@
+/* Enter your custom styles here */
+.rectangleShape {
+    border: 1px solid #000;
+}
+
+.circleShape {
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.borderHBox{
+    border-radius: 15px;
+    border: 2px solid #000;
+    padding: 20px;
+    width:7rem;
+    height:3rem;
+
+}
+.txtPadding{
+    padding-top: 10px;
+}
